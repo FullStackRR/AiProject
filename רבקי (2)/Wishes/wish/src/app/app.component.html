@@ -1,0 +1,41 @@
+<div class="center">
+  <div class="row" *ngIf="! this.wishService.resFlag;else res">
+    <div class="row">
+      <label class="col">סוג ארוע</label>
+      <select class="col-3" [(ngModel)]="targetSelect">
+        <option *ngFor="let event of targetArray">{{event}}</option>
+      </select>
+    </div>
+    <div class="row">
+      <label class="col">סוג האיחול</label>
+      <select class="col-3" [(ngModel)]="typeSelect">
+        <option *ngFor="let type of typeArray">{{type}}</option>
+      </select>
+    </div>
+    <input type="number" [(ngModel)]="age" *ngIf="eventSelect=='יום הולדת'" placeholder="גיל הכנס" min="0" max="120">
+    <div class="row">
+      אורך
+
+      <select class="col-3" [(ngModel)]="longSelect">
+        <option *ngFor="let long of longArray">{{long}}</option>
+      </select>
+    </div>
+    <div class="row">
+      אוירה
+      <select class="col-3" [(ngModel)]="aviraSelect">
+        <option *ngFor="let avira of aviraArray">{{avira}}</option>
+      </select>
+    </div>
+    <br>
+    <button (click)="getWish()">כתוב לי ברכה</button>
+  </div>
+  <ng-template #res>
+    <app-wishes [longSelect]="longSelect" [aviraSelect]="aviraSelect"
+      [typeSelect]="typeSelect" [targetSelect]="targetSelect" [resAI]="this.resAI"></app-wishes></ng-template>
+  <!-- <router-outlet></router-outlet> 
+ 
+   
+    <button (click)="atherWish()">משהו אחר</button>
+   -->
+
+</div>
