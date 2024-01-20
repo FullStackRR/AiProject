@@ -33,6 +33,8 @@ export class AppComponent {
 
   getWish() {
     this.wishService.resFlag = true;
+    if(this.age>0)
+      this.targetSelect+=` לגיל {this.age}`
     this.wishService.getWish(this.typeSelect, this.longSelect, this.targetSelect, this.aviraSelect).subscribe(data => {
       this.resAI = data;
     })
