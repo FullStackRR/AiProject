@@ -118,10 +118,11 @@ i++
 });
 
 app.get('/another',(req,res)=>{
-  console.log(index)
+ let ans="";
 if(index<3)
-  res.json( arr[index++])
-const ans= "no more blessings for this category please enter ypur request again"
+  ans= arr[index++]
+else
+ ans= "no more blessings for this category please enter ypur request again"
 res.json(ans);
 })
 
